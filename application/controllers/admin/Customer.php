@@ -1022,7 +1022,6 @@ class Customer extends BaseController
     public function edit($id = NULL)
     {
         
-
         $this->isLoggedIn();
 
         if($id == null)
@@ -1206,20 +1205,14 @@ class Customer extends BaseController
         
         
         
-        $this->load->library('form_validation');            
-        $this->form_validation->set_rules('customer_name_update','Name','trim|required');
-        $this->form_validation->set_rules('enquiry_id_update','ID','trim|required');
-        $this->form_validation->set_rules('customer_mobile_update','MObile','trim|required');
+                $this->load->library('form_validation');            
+                $this->form_validation->set_rules('customer_name_update','Name','trim|required');
+                $this->form_validation->set_rules('enquiry_id_update','ID','trim|required');
+                $this->form_validation->set_rules('customer_mobile_update','MObile','trim|required');
+                
+                //form data 
+                $form_data  = $this->input->post();
         
-        
-         
-         
-        
-        
-        //form data 
-        $form_data  = $this->input->post();
-        
-
                 $insertData = array();
                 $insertData['id']                    = $form_data['farmser_id_update'];
                 $insertData['name']                  = ucfirst($form_data['customer_name_update']);
@@ -1232,9 +1225,7 @@ class Customer extends BaseController
                 $insertData['other_city']            = $form_data['other_city_update'];
                 $insertData['update_at']             = date("Y-m-d H:i:s");
                 $insertData['update_by']             = $this->session->userdata('userId');
-                
-
-               
+                               
                  
                 $result = $this->farmers_model->save($insertData);
 
@@ -1263,8 +1254,7 @@ class Customer extends BaseController
                 $insertData['last_call_back_date']   = $form_data['call_back_date_update'];
                 $insertData['current_conversation'] = $form_data['current_conversation_update'];
 
-               
-                 
+                             
                 $result = $this->customer_model->save($insertData);
 
                 if($result)
@@ -1318,10 +1308,7 @@ class Customer extends BaseController
                     }
 
                     echo json_encode($response_result);
-                    
-         
-
-         
+                         
     }
 
     public function customer_call_detail()

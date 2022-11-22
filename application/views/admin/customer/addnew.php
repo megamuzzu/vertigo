@@ -945,8 +945,16 @@ print_r($customer_call_dtl);  */
                                                <a class="dropdown-item text-danger deletebtn" href="#" data-userid="<?php echo $customer['id']; ?>">Delete</a>
                                               <?php  
                                               }
+
+                                              if(@$action_requred->edit=='edit')
+                                              {
+                                              ?>
+                                               <a class="dropdown-item editbtn" href="#" data-userid="<?php echo $customer['id']; ?>">Edit</a>
+                                              <?php  
+                                              }
+
                                              
-  $view_btn =(@$action_requred->view=='view')?'<a class="side_modal"  data-userid="'.$customer['id'].'" href="javascript:void(0)">'.$customer['farmername'].'</a>':$customer['farmername'];
+                                            $view_btn =(@$action_requred->view=='view')?'<a class="side_modal"  data-userid="'.$customer['id'].'" href="javascript:void(0)">'.$customer['farmername'].'</a>':$customer['farmername'];
                                                
                                             ?>
                                             
@@ -1132,6 +1140,7 @@ print_r($customer_call_dtl);  */
                               <label for="farmser_id_update" class="col-sm-4 col-form-label">Farmer ID</label>
                               <div class="col-sm-8">
                                  <input type="text" class="form-control form-control-sm" id="farmser_id_update" name="farmser_id_update" placeholder="Farmer ID" readonly value="">
+                                 <input type="hidden" name="enquiry_id_update" id="enquiry_id_update" value=""/>
                               </div>
                            </div>
                            <div class="row">
@@ -1177,15 +1186,7 @@ print_r($customer_call_dtl);  */
                                  <select class=" form-control form-control-sm" id="district_update" name="district_update" aria-label="Floating label select example" onchange="districtChangeUpdate()">
                                     <option value="" selected>Choose District</option>
                                     <?php
-                                      /* if(!empty($districts))
-                                       {
-                                           foreach ($districts as $district) {
-                                               ?>
-                                    <option value="<?php echo $district->id;?>"  <?php if(isset($edit_data->district) && $edit_data->district ==$district->id){ echo "selected";}?>><?php echo $district->name;?></option>
-                                    <?php
-                                       }
-                                       }*/
-                                       ?>
+                                                                          ?>
                                  </select>
                                  <input type="text" name="other_district_update" id="other_district_update"  style="display: none;" class="form-control form-control-sm mb-2" placeholder="Please Enter District Name" />
                               </div>
@@ -1292,7 +1293,6 @@ print_r($customer_call_dtl);  */
                            <div class="row ">
                               <div class="col-sm-12">
                                   <button type="submit" class="btn btn-primary w-md float-end">Save</button>
-                                  <input type="hidden" name="enquiry_id_update" id="enquiry_id_update" value=""/>
                               </div>
                            </div>
                         </div>
@@ -1696,11 +1696,6 @@ function districtChangeUpdate(district_code = '',selected_city = '') {
    
 </script>
 <script type="text/javascript">
-
-
-  
-
-
   function single_cutomer_detail(id)
   {
      $(".bs-example-modal-xl").modal('show');
