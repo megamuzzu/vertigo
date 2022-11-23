@@ -205,20 +205,20 @@
                                                         <th scope="row"><strong><i class="fa fa-key"></i> Logged in</strong>
                                                             
                                                         </th>
-                                                        <td><p><?php echo $admin->title;?></p></td>
+                                                        <td><?php echo $admin->title;?></td>
                                                          
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row">  <i class="fa fa-phone"></i>  Mobile :</th>
+                                                        <th scope="row"><strong><i class="fa fa-phone"></i>  Mobile </strong></th>
                                                         <td><?php echo $admin->phone;?> </td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row"> <i class="fa fa-envelope"></i> E-mail</th>
+                                                        <th scope="row"><strong><i class="fa fa-envelope"></i> E-mail</strong></th>
                                                         <td><?php echo $admin->email;?></td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row"><strong><i class="fa fa-map-marker-alt"></i> Center</strong></th>
-                                                        <td><p><?php echo wordwrap($admin->address,50,"<br>\n");?></p></td>
+                                                        <td><?php echo wordwrap($admin->address,50,"<br>\n");?></td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row"><strong><i class="fa fa-calendar-alt"></i> Date Of Join</strong></th>

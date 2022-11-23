@@ -50,9 +50,9 @@ $active_record = TRUE;
 
 //Local host
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'crmverti_crmbck';
-$db['default']['password'] = 'Vertigo@123';
-$db['default']['database'] = 'crmverti_crmbck';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '';
+$db['default']['database'] = 'vertigo';
 
 //Server
 // $db['default']['hostname'] = '208.97.172.20';

@@ -19,7 +19,7 @@
    </head>
    <body>
       <div class="container-login100" style="background-image: url('<?php echo base_url()?>assets/admin/login/images/bg-01.jpg');">
-         <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+         <div class="wrap-login100">
             <form class="login100-form validate-form" action="<?php echo base_url();?>admin/login/loginMe" method="post" autocomplete="off" novalidate >
                <span class="login100-form-title p-b-37">
                <img src="<?php echo base_url()?>assets/admin/login/images/logo-light.png" alt="Vertigo Agriculture Pvt Ltd" title="Vertigo Agriculture Pvt Ltd" class="img-fluid">
@@ -63,13 +63,13 @@
                   Sign In
                   </button>
                </div>
-               <div class="text-center p-t-57 p-b-20">
+               <div class="text-center p-t-40 p-b-20">
                   <span class="txt1">
                   Designed and Developed By
                   </span>
                </div>
                <div class="flex-c">
-                  <a href="https://megatasktechnologies.com/" class="login100-social-item">
+                  <a href="https://megatasktechnologies.com/" target="_BLANK" class="login100-social-item">
                   <img src="<?php echo base_url()?>assets/admin/login/images/icons/icon-google.png" alt="Megatask Technologies Pvt Ltd" title="Megatask Technologies Pvt Ltd">
                   </a>
                </div>

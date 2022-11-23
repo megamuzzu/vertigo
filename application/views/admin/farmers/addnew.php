@@ -287,7 +287,7 @@
                         
                       </div>
                       <div class="card-footer">
-                        <div class="float-end">
+                        <div class="av-footer">
                             <input type="submit" class="btn btn-primary btn-sm" value="Submit" />
                             <input type="reset" class="btn btn-default btn-sm" value="Reset" />
                         </div>

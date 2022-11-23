@@ -1305,6 +1305,86 @@ print_r($customer_call_dtl);  */
                                                     </div><!-- /.modal-content -->
                                                 </div><!-- /.modal-dialog -->
                                             </div>
+
+
+
+
+        <!-- Edit Modal -->
+
+  <div class="modal fade bs-example-modal-x2 show" tabindex="-1" aria-labelledby="myExtraLargeModalLabel" aria-modal="true" role="dialog" >
+   <div class="modal-dialog modal-xl">
+      <div class="modal-content border-success">
+         <div class="modal-header bg-success ">
+            <h5 class="modal-title text-white" id="myExtraLargeModalLabel">Assign Inquiry</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            <form action="<?php echo base_url();?>admin/customer/update_enquiry" id="update_inquiry">
+               <div class="row">
+                  <input type="hidden" name="redirect_url" id="redirect_url" value="<?php echo base_url()."admin/customer/update?".$_SERVER['QUERY_STRING'];?>">
+                  <div class="col-sm-12">
+                     <div class="card">
+
+                      <input type="hidden" class="form-control form-control-sm" id="farmser_id_update" name="farmser_id_update" placeholder="Farmer ID" readonly value="">
+                                 <input type="hidden" name="enquiry_id_update" id="enquiry_id_update" value=""/>
+
+                        <div class="card-body">
+                           <div class="row">
+                              <label for="assign_to_update" class="col-sm-4 col-form-label">Assign To*</label>
+                              <div class="col-sm-8">
+                                 <select class=" form-control form-control-sm" id="assign_to_update" name="assign_to_update" aria-label="Floating label select example">
+                                    <?php
+                                       if(!empty($all_users))
+                                       {
+                                           foreach ($all_users as $user) {
+                                            if($user->status !=0)
+                                            {
+                                               ?>
+                                    <option value="<?php echo $user->id;?>"  ><?php echo $user->id;?> <?php echo $user->title;?></option>
+                                    <?php
+                                       }
+                                         
+                                       }
+                                       }
+                                       ?>
+                                 </select>
+                              </div>
+                           </div>
+
+                           <div class="row">
+                              <div class="col-sm-12">
+                                <label for="assign_to_update" class="col-sm-4 col-form-label">Assign To*</label>
+                                 <textarea   class="form-control form-control-sm" id="current_conversation_update" name="current_conversation_update" placeholder="Current Conversation"  ></textarea>
+                              </div>
+                           </div>
+
+                           <div class="row ">
+                              <div class="col-sm-12">
+                                 <button type="submit" class="btn btn-primary w-md float-end">Save</button>
+                              </div>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+      <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
+</div>
+
+        <!-- Edit Modal -->
+
+
+
+
+
+
+
+
 <script src="<?php echo base_url(); ?>assets/admin/libs/jquery/jquery.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/admin/libs/toastr/build/toastr.min.js"></script>
 <script type="text/javascript">
@@ -1620,7 +1700,7 @@ function districtChangeUpdate(district_code = '',selected_city = '') {
                 /*console.log(data);
                  return false;*/
    
-                 $('.bs-example-modal-xl').modal('hide');
+                 $('.bs-example-modal-x2').modal('hide');
                  toastr.success(data.message);
                   window.location.reload(true);
    
@@ -1634,7 +1714,7 @@ function districtChangeUpdate(district_code = '',selected_city = '') {
           
        });
    jQuery(document).ready(function(){
-         $(".bs-example-modal-xl").on('hide.bs.modal', function(){
+         $(".bs-example-modal-x2").on('hide.bs.modal', function(){
           $('#update_inquiry').attr('action','');
           $('#update_inquiry')[0].reset();
            
@@ -1698,7 +1778,34 @@ function districtChangeUpdate(district_code = '',selected_city = '') {
 <script type="text/javascript">
   function single_cutomer_detail(id)
   {
-     $(".bs-example-modal-xl").modal('show');
+     $(".bs-example-modal-x2").modal('show');
+        var userId = id,
+           hitURL = "<?php echo base_url() ?>admin/customer/single/"+id;
+           action_url = "<?php echo base_url() ?>admin/customer/update_enquiry";
+           $("#update_inquiry").attr("action",action_url);
+
+           jQuery.ajax({
+           type : "POST",
+           dataType : "json",
+           url : hitURL,
+           data : {} 
+           }).done(function(data){ 
+            console.log(data);
+            response = data;
+            $("#farmser_id_update").val(response.farmer_id);
+            $("#enquiry_id_update").val(response.id);           
+ 
+            $("#assign_to_update").val(response.assigned_to);
+            $("#current_conversation_update").val(response.current_conversation);
+           });
+  }
+
+
+
+
+  function single_cutomer_details(id)
+  {
+     $(".bs-example-modal-x1").modal('show');
         var userId = id,
            hitURL = "<?php echo base_url() ?>admin/customer/single/"+id;
            action_url = "<?php echo base_url() ?>admin/customer/update_enquiry";
@@ -1736,6 +1843,9 @@ function districtChangeUpdate(district_code = '',selected_city = '') {
 
            });
   }
+
+
+
   function get_cutomer_call_detail(id,div_id)
   {
      
