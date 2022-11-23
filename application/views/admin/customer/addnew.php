@@ -958,7 +958,7 @@ print_r($customer_call_dtl);  */
                                                
                                             ?>
                                             
-                                            
+
                                             <a class="dropdown-item content-inline" href="https://wa.me/+91<?php echo $customer['farmermobile'];?>" data-userid="<?php echo $customer['id']; ?>">
                                                 <img src="<?php echo base_url()?>assets/admin/images/WhatsApp.svg" class="img-whats"> What's App
                                             </a>
@@ -1319,17 +1319,22 @@ print_r($customer_call_dtl);  */
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body">
-            <form action="<?php echo base_url();?>admin/customer/update_enquiry" id="update_inquiry">
+            <form action="<?php echo base_url();?>admin/customer/update_enquiries" id="update_inquiry">
                <div class="row">
                   <input type="hidden" name="redirect_url" id="redirect_url" value="<?php echo base_url()."admin/customer/update?".$_SERVER['QUERY_STRING'];?>">
                   <div class="col-sm-12">
                      <div class="card">
-
-                      <input type="hidden" class="form-control form-control-sm" id="farmser_id_update" name="farmser_id_update" placeholder="Farmer ID" readonly value="">
-                                 <input type="hidden" name="enquiry_id_update" id="enquiry_id_update" value=""/>
-
                         <div class="card-body">
                            <div class="row">
+
+                            <div class="row">
+                              <label for="farmser_id_update" class="col-sm-4 col-form-label">Farmer ID</label>
+                              <div class="col-sm-8">
+                                 <input type="text" class="form-control form-control-sm" id="farmser_id_update" name="farmser_id_update" placeholder="Farmer ID" readonly value="">
+                                 <input type="hidden" name="enquiry_id_update" id="enquiry_id_update" value=""/>
+                              </div>
+                           </div>
+
                               <label for="assign_to_update" class="col-sm-4 col-form-label">Assign To*</label>
                               <div class="col-sm-8">
                                  <select class=" form-control form-control-sm" id="assign_to_update" name="assign_to_update" aria-label="Floating label select example">
@@ -1700,7 +1705,7 @@ function districtChangeUpdate(district_code = '',selected_city = '') {
                 /*console.log(data);
                  return false;*/
    
-                 $('.bs-example-modal-x2').modal('hide');
+                 $('.bs-example-modal-x1').modal('hide');
                  toastr.success(data.message);
                   window.location.reload(true);
    
@@ -1714,7 +1719,7 @@ function districtChangeUpdate(district_code = '',selected_city = '') {
           
        });
    jQuery(document).ready(function(){
-         $(".bs-example-modal-x2").on('hide.bs.modal', function(){
+         $(".bs-example-modal-x1").on('hide.bs.modal', function(){
           $('#update_inquiry').attr('action','');
           $('#update_inquiry')[0].reset();
            
@@ -1776,34 +1781,11 @@ function districtChangeUpdate(district_code = '',selected_city = '') {
    
 </script>
 <script type="text/javascript">
-  function single_cutomer_detail(id)
-  {
-     $(".bs-example-modal-x2").modal('show');
-        var userId = id,
-           hitURL = "<?php echo base_url() ?>admin/customer/single/"+id;
-           action_url = "<?php echo base_url() ?>admin/customer/update_enquiry";
-           $("#update_inquiry").attr("action",action_url);
-
-           jQuery.ajax({
-           type : "POST",
-           dataType : "json",
-           url : hitURL,
-           data : {} 
-           }).done(function(data){ 
-            console.log(data);
-            response = data;
-            $("#farmser_id_update").val(response.farmer_id);
-            $("#enquiry_id_update").val(response.id);           
  
-            $("#assign_to_update").val(response.assigned_to);
-            $("#current_conversation_update").val(response.current_conversation);
-           });
-  }
 
 
 
-
-  function single_cutomer_details(id)
+    function single_cutomer_detail(id)
   {
      $(".bs-example-modal-x1").modal('show');
         var userId = id,
@@ -1843,6 +1825,10 @@ function districtChangeUpdate(district_code = '',selected_city = '') {
 
            });
   }
+
+
+
+
 
 
 

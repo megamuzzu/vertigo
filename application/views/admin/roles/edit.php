@@ -209,7 +209,7 @@
                                               {
                                                 /*creating action for edit update delete and view */
                                                 ?>
-                                          <div class="m-2" >
+                                          <div class="" >
                                             <div class="form-check form-check-inline form-check-primary">
                                               <input class="form-check-input" type="checkbox" <?php if(!empty($lists)){ ?> checked="true" <?php } ?> name="option_data[<?php echo $key2['id'];?>][inlineRadioOptions][lists]" id="lists<?php echo $key2['id'];?>" value="lists">
                                               <label class="form-check-label" for="lists<?php echo $key2['id'];?>">list</label>
@@ -291,7 +291,7 @@
                                                             <label for="menu3_access_<?php echo $key3['id'];?>"><?php echo  $key3['module_name'];?> </label>
                                                         </div>
 
-                                                        <div class="m-2" >
+                                                        <div class="" >
                                                           <div class="form-check form-check-inline form-check-primary">
                                                             <input class="form-check-input" type="checkbox" <?php if(!empty($lists)){ ?> checked="true" <?php } ?> name="option_data[<?php echo $key3['id'];?>][inlineRadioOptions][lists]" id="lists<?php echo $key3['id'];?>" value="lists">
                                                             <label class="form-check-label" for="lists<?php echo $key3['id'];?>">List</label>
