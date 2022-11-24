@@ -179,7 +179,7 @@
                                  </select>
                               </div>
                            </div>
-                           <div class="row" hidden="hidden">
+                           <div class="row">
                               <label for="call_back_date" class="col-sm-4 col-form-label">Call Back Date</label>
                               <div class="col-sm-8">
                                  <input type="date" class="form-control form-control  form-control-sm" id="call_back_date" name="call_back_date" placeholder="Call Back Date" value="<?php echo date('Y-m-d',strtotime($edit_data->last_follow_date))?>">
