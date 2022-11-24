@@ -61,7 +61,7 @@
                </button>
                <div class="dropdown d-none d-lg-inline-block ms-1">
                             <button type="button" onclick="javascript:window.location.href='<?php echo base_url()?>admin/dashboard'" class="btn header-item "  >
-                                <div class="text-success">Vertigo Agriculture Private Limited</div>
+                                <div class="company-name">Vertigo Agriculture Private Limited</div>
                             </button>
                         </div>
               
@@ -105,7 +105,7 @@
                   </button>
                   <div class="dropdown-menu dropdown-menu-end">
                      <!-- item-->
-                     <a class="dropdown-item" href="<?php echo base_url()?>admin/dashboard"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
+                     <!-- <a class="dropdown-item" href="<?php echo base_url()?>admin/dashboard"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a> -->
                      <a class="dropdown-item" href="<?php echo base_url()?>admin/profile/edit"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Edit Profile</span></a>
                      <a class="dropdown-item d-block" href="<?php echo base_url()?>admin/profile/change_passowrd"><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Change Password</span></a>
                      <div class="dropdown-divider"></div>
@@ -355,3 +355,5 @@
                ?>  
          </div>
       </div>
+
+      

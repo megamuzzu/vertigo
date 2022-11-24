@@ -72,6 +72,7 @@ class Customer extends BaseController
             $data['section'] = $this->input->get('section');
             $data['customer_call_dtl'] = array();
 
+
             $form_type  = $this->input->get('form_type');
             $conditions = array(); 
             $where_search = array();
@@ -452,6 +453,7 @@ class Customer extends BaseController
                         }
                         $where = array();
                         $where['farmer_id'] = $data['edit_data']->id;
+
                         //$data['customer_call_dtl'] =$this->customer_call_detail($data['edit_data']->id);
                        // $data['customer_call_dtl'] = $this->customer_call_model->findDynamic($where);
                     }
@@ -1070,6 +1072,67 @@ class Customer extends BaseController
         
     } 
 
+
+
+
+    // Assign
+ 
+    public function assign($id = NULL)
+    {
+        
+        $this->isLoggedIn();
+
+        if($id == null)
+        {
+            redirect('admin/customer');
+        }
+
+        $data = array();
+        
+        $where = array();
+        $where['status'] = '1'; 
+        $where['id'] = $id; 
+        $where['field'] = 'id,customer_name,customer_title,sku_id';
+        $data['all_customers'] = $this->customer_model->findDynamic($where);
+        
+        $where = array();
+        $where['status'] = '1';
+        $where['field'] = 'id,name,title';
+        $data['all_users'] = $this->admin_model->findDynamic($where);
+
+
+        $where = array();
+        $where['status'] = '1';
+        $where['orderby'] = 'name';
+        $data['states'] = $this->state_model->findDynamic($where);
+
+        $where = array();
+        $where['status'] = '1';
+        $where['orderby'] = 'city';
+        $data['cities'] = $this->city_model->findDynamic($where);
+
+        $where = array();
+        $where['status'] = '1';
+        $where['orderby'] = 'id';
+        $data['calltypes'] = $this->call_type_model->findDynamic($where);
+
+        $where = array();
+        $where['status'] = '1';
+        $where['orderby'] = 'title';
+        $data['calldirections'] = $this->call_direction_model->findDynamic($where);
+        
+
+        $data['edit_data'] = $this->customer_model->find($id);
+        $this->global['pageTitle'] = 'Agency ';
+        $this->loadViews("admin/customer/assign", $this->global, $data , NULL);
+        
+    } 
+
+
+
+
+
+
     // Delete  *****************************************************************
       function delete()
     {
@@ -1090,7 +1153,6 @@ class Customer extends BaseController
         $this->isLoggedIn();
         
        
-        
         $this->load->library('form_validation');            
         $this->form_validation->set_rules('customer_name','customer_name','trim|required');
         $this->form_validation->set_rules('customer_mobile','customer_mobile','trim|required');
@@ -1100,6 +1162,12 @@ class Customer extends BaseController
         $this->form_validation->set_rules('assign_to','assign_to','trim|required');
         $this->form_validation->set_rules('call_back_date','call_back_date','trim|required');
         $this->form_validation->set_rules('call_direction','call_direction','trim|required');
+            
+         
+        
+        
+         
+        
         
         
         //form data 
@@ -1194,9 +1262,125 @@ class Customer extends BaseController
             
           } 
 
-          redirect(base_url().'admin/customer/edit/'.$form_data['id']); 
+          redirect(base_url().'admin/customer/assign/'.$form_data['id']); 
         
     }
+
+
+
+
+
+
+
+    // Update Agency*************************************************************
+    public function update_assign()
+    {
+        
+        $this->isLoggedIn();
+        
+       
+        
+        $this->load->library('form_validation');            
+        $this->form_validation->set_rules('customer_name','customer_name','trim|required');
+        $this->form_validation->set_rules('customer_mobile','customer_mobile','trim|required');
+        
+        
+         
+        $this->form_validation->set_rules('assign_to','assign_to','trim|required');
+        $this->form_validation->set_rules('call_back_date','call_back_date','trim|required');
+        $this->form_validation->set_rules('call_direction','call_direction','trim|required');
+        
+        
+        //form data 
+        $form_data  = $this->input->post();
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->edit($form_data['id']);
+        }
+        else
+        {
+
+                $insertData = array();
+                $where = array();
+                $where['customer_mobile'] = $form_data['customer_mobile'];
+
+                $where['id!=']      = $form_data['id'];
+ 
+
+                $exist_mobile    = $this->customer_model->findDynamic($where);
+                if(empty($exist_mobile))
+                {
+                    //pre($form_data);exit;
+                $insertData['id']                    = $form_data['id'];
+                $insertData['customer_name']         = $form_data['customer_name'];
+                $insertData['customer_title']        = ucfirst($form_data['customer_name']);
+                $insertData['customer_mobile']       = $form_data['customer_mobile'];
+                $insertData['customer_alter_mobile'] = $form_data['customer_alter_mobile'];
+                $insertData['state']                 = $form_data['state'];
+                $insertData['other_state']           = $form_data['other_state'];
+                $insertData['district']              = $form_data['district'];
+                $insertData['other_district']        = $form_data['other_district'];
+                $insertData['city']                  = $form_data['city'];
+                $insertData['other_city']            = $form_data['other_city'];
+                $insertData['status']                = '1';
+                $insertData['date_at']               = date("Y-m-d H:i:s");
+                $insertData['created_by']            = $this->session->userdata('userId');
+                $insertData['assigned_to']           = $form_data['assign_to'];
+                $insertData['last_call_direction']   = $form_data['call_direction'];
+                $insertData['last_call_type']        = $form_data['call_type'];
+                $insertData['last_follow_date']      = date("Y-m-d H:i:s");
+                $insertData['last_follower']         = $this->session->userdata('userId');
+                $insertData['last_follow_call_type'] = $form_data['call_type'];
+                $insertData['last_call_back_date']   = $form_data['call_back_date'];
+                $insertData['current_conversation']  = $form_data['current_conversation'];
+                $insertData['update_by']             = $this->session->userdata('userId');
+
+               
+                 
+                $result = $this->customer_model->save($insertData);
+                if($result > 0)
+                {
+
+                     $insertData = array();
+                     $insertData['customer']                 = $result;
+                    $insertData['call_type']                = $form_data['call_type'];
+                    $insertData['assign_to']                = ($form_data['assign_to']);
+                    $insertData['user_id']                  = $this->session->userdata('userId');
+                    $insertData['call_back_date']           = $form_data['call_back_date'];
+                    $insertData['call_direction']           = $form_data['call_direction'];
+                    $insertData['current_conversation']     = $form_data['current_conversation'];
+                    $insertData['status']                   = '1';
+                    $insertData['date_at']                  = date("Y-m-d H:i:s");
+
+              
+                    $result = $this->customer_call_model->save($insertData); 
+                    
+
+                    $this->session->set_flashdata('success', 'Customer successfully Updated');
+                }
+                else
+                { 
+                    $this->session->set_flashdata('error', 'Customer Updation  failed');
+                }
+                }else
+                {
+                         $this->session->set_flashdata('error', 'Customer With Mobile Already Added');
+                }               
+              
+            
+          } 
+
+          redirect(base_url().'admin/customer/assign/'.$form_data['id']); 
+        
+    }
+
+
+
+
+
+
+
+
 
     public function update_enquiry()
     {

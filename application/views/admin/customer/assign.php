@@ -8,7 +8,7 @@
       <div class="row">
          <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-               <h4 class="mb-sm-0 font-size-18">Update Farmers</h4>
+               <h4 class="mb-sm-0 font-size-18">Assign Agents</h4>
                <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="<?php echo base_url()?>admin/customer">Dashboards</a></li>
@@ -56,7 +56,7 @@
                <div class="row">
                    <div class="col-sm-6">
 
-                    <pre>
+                    <!-- <pre>
 
                       <?php
 
@@ -65,10 +65,10 @@
 
                       ?>
 
-                    </pre>
+                    </pre>   -->
 
 
-                     <div class="card">
+                     <div class="card" hidden="hidden">
                         <h5 class="card-header bg-success text-white border-bottom ">Farmers Detail</h5>
                         <div class="card-body">
                            <div class="row">
@@ -143,7 +143,7 @@
                         <h5 class="card-header bg-success text-white border-bottom ">Call Details</h5>
                         <div class="card-body">
                             
-                           <div class="row">
+                           <div class="row" hidden="hidden">
                               <label for="call_type" class="col-sm-4 col-form-label">Call Type</label>
                               <div class="col-sm-8">
                                  <select class=" form-control  form-control-sm" id="call_type" name="call_type" onchange="select_calltype()"  aria-label="Floating label select example">
@@ -179,13 +179,13 @@
                                  </select>
                               </div>
                            </div>
-                           <div class="row">
+                           <div class="row" hidden="hidden">
                               <label for="call_back_date" class="col-sm-4 col-form-label">Call Back Date</label>
                               <div class="col-sm-8">
                                  <input type="date" class="form-control form-control  form-control-sm" id="call_back_date" name="call_back_date" placeholder="Call Back Date" value="<?php echo date('Y-m-d',strtotime($edit_data->last_follow_date))?>">
                               </div>
                            </div>
-                           <div class="row">
+                           <div class="row" hidden="hidden">
                               <label for="call_direction" class="col-sm-4 col-form-label">Call Direction</label>
                               <div class="col-sm-8">
                                  <select class=" form-control  form-control-sm" id="call_direction" name="call_direction" aria-label="Floating label select example">
@@ -212,7 +212,7 @@
                         <div class="card-body">
                            <div class="row ">
                               <div class="col-sm-12">
-                                 <textarea   class="form-control form-control-sm" id="current_conversation" name="current_conversation" placeholder="Current Conversation"  ></textarea>
+                                 <textarea   class="form-control form-control-sm" id="current_conversation" name="current_conversation" placeholder="Current Conversation"><?php if(isset($edit_data->current_conversation) && $edit_data->current_conversation !==''){echo $edit_data->current_conversation;}?></textarea>
                               </div>
                            </div>
                         </div>

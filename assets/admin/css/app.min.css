@@ -44,7 +44,9 @@ Note: ::selection is not supported in Inter
 	height: 70px;
 	padding: 0 calc(24px / 2) 0 0;
 }
-
+.company-name {
+    font-size: 22px;
+}
 .navbar-header .dropdown .show.header-item {
 	background-color: #f8f9fa;
 }
