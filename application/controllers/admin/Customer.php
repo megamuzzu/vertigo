@@ -1147,49 +1147,30 @@ class Customer extends BaseController
     }
 
     // Update Agency*************************************************************
-    public function update()
+     public function update()
     {
-		
+        
         $this->isLoggedIn();
         
        
-        $this->load->library('form_validation');            
-        $this->form_validation->set_rules('customer_name','customer_name','trim|required');
-        $this->form_validation->set_rules('customer_mobile','customer_mobile','trim|required');
-        
-        
-         
+        $this->load->library('form_validation');                 
         $this->form_validation->set_rules('assign_to','assign_to','trim|required');
         $this->form_validation->set_rules('call_back_date','call_back_date','trim|required');
         $this->form_validation->set_rules('call_direction','call_direction','trim|required');
-            
          
-        
-        
-         
-        
-        
         
         //form data 
         $form_data  = $this->input->post();
         if($this->form_validation->run() == FALSE)
         {
             $this->edit($form_data['id']);
+            
         }
         else
         {
 
                 $insertData = array();
-                $where = array();
-                $where['customer_mobile'] = $form_data['customer_mobile'];
-
-                $where['id!=']      = $form_data['id'];
- 
-
-                $exist_mobile    = $this->customer_model->findDynamic($where);
-                if(empty($exist_mobile))
-                {
-                    //pre($form_data);exit;
+                 
                 $insertData['id']                    = $form_data['id'];
                 $insertData['customer_name']         = $form_data['customer_name'];
                 $insertData['customer_title']        = ucfirst($form_data['customer_name']);
@@ -1220,8 +1201,8 @@ class Customer extends BaseController
                 if($result > 0)
                 {
 
-                     $insertData = array();
-                     $insertData['customer']                 = $result;
+                    $insertData = array();
+                    $insertData['customer']                 = $result;
                     $insertData['call_type']                = $form_data['call_type'];
                     $insertData['assign_to']                = ($form_data['assign_to']);
                     $insertData['user_id']                  = $this->session->userdata('userId');
@@ -1246,13 +1227,12 @@ class Customer extends BaseController
 
                     $this->session->set_flashdata('success', 'Customer successfully Updated');
                 }
+                
+               
+                
                 else
-                { 
-                    $this->session->set_flashdata('error', 'Customer Updation  failed');
-                }
-                }else
                 {
-                         $this->session->set_flashdata('error', 'Customer With Mobile Already Added');
+                         $this->session->set_flashdata('error', 'Customer Updation  failed');
                 }
 
 
@@ -1262,7 +1242,7 @@ class Customer extends BaseController
             
           } 
 
-          redirect(base_url().'admin/customer/assign/'.$form_data['id']); 
+          redirect(base_url().'admin/customer/addnew'); 
         
     }
 

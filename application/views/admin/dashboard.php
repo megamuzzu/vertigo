@@ -140,7 +140,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                           <!--  <div class="col-md-4">
                                 <div class="card mini-stats-wid">
                                     <a href="javascript: void(0)" data-bs-toggle="modal" data-bs-target="#otherModal">
                                         <div class="my-card-body icon-box ">
@@ -150,7 +150,7 @@
                                         </div>
                                     </a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <hr>                        
                     </div>  
@@ -215,7 +215,7 @@
             <div class="modal-dialog">
                 <div class="modal-content bordered border-success">
                     <div class="modal-header bg-success mb-2">
-                        <h5 class="modal-title text-white" id="cssModalLabel">CSS</h5>
+                        <h5 class="modal-title text-white" id="cssModalLabel">INQUIRY</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -270,7 +270,7 @@
             <div class="modal-dialog">
                 <div class="modal-content bordered border-success">
                     <div class="modal-header bg-success mb-2">
-                        <h5 class="modal-title text-white" id="salesModalLabel">Sales</h5>
+                        <h5 class="modal-title text-white" id="salesModalLabel">SALES</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -323,7 +323,7 @@
             <div class="modal-dialog">
                 <div class="modal-content bordered border-success">
                     <div class="modal-header bg-success mb-2">
-                        <h5 class="modal-title text-white" id="productModalLabel">Product</h5>
+                        <h5 class="modal-title text-white" id="productModalLabel">PRODUCT</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -376,7 +376,7 @@
             <div class="modal-dialog">
                 <div class="modal-content bordered border-success">
                     <div class="modal-header bg-success mb-2">
-                        <h5 class="modal-title text-white" id="settingModalLabel">Settings</h5>
+                        <h5 class="modal-title text-white" id="settingModalLabel">SETTINGS</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -462,7 +462,7 @@
             <div class="modal-dialog">
                 <div class="modal-content bordered border-success">
                     <div class="modal-header bg-success mb-2">
-                        <h5 class="modal-title text-white" id="otherModalLabel">Other</h5>
+                        <h5 class="modal-title text-white" id="otherModalLabel">MANAGEMENT</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

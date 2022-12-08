@@ -884,10 +884,10 @@
                   $view_btn =(@$action_requred->view=='view')?'<a class="side_modal"  data-userid="'.$customer['id'].'" href="javascript:void(0)">'.$customer['farmername'].'</a>':$customer['farmername'];
                    
                   ?>
-               <a class="dropdown-item content-inline" href="https://wa.me/+91<?php echo $customer['farmermobile'];?>" data-userid="<?php echo $customer['id']; ?>">
+               <a class="dropdown-item content-inline" href="https://wa.me/+91<?php echo $customer['farmermobile'];?>" data-userid="<?php echo $customer['id']; ?>" target="_blank">
                <img src="<?php echo base_url()?>assets/admin/images/WhatsApp.svg" class="img-whats"> What's App
                </a>
-               <a class="dropdown-item content-inline" href="https://wa.me/+91<?php echo $customer['farmeraltmobile'];?>" data-userid="<?php echo $customer['id']; ?>">
+               <a class="dropdown-item content-inline" href="https://wa.me/+91<?php echo $customer['farmeraltmobile'];?>" data-userid="<?php echo $customer['id']; ?>" target="_blank">
                <img src="<?php echo base_url()?>assets/admin/images/WhatsApp.svg" class="img-whats"> What's App Alt
                </a>
                </div>

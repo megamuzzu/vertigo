@@ -56,18 +56,6 @@
                <div class="row">
                    <div class="col-sm-6">
 
-                    <!-- <pre>
-
-                      <?php
-
-                      print_r($edit_data);
-                      
-
-                      ?>
-
-                    </pre>   -->
-
-
                      <div class="card" hidden="hidden">
                         <h5 class="card-header bg-success text-white border-bottom ">Farmers Detail</h5>
                         <div class="card-body">
@@ -171,7 +159,7 @@
                                        {
                                            foreach ($all_users as $user) {
                                                ?>
-                                    <option value="<?php echo $user->id;?>" <?php if(isset($edit_data->assigned_to) && $edit_data->assigned_to ==$user->id){ echo "selected";}?>  ><?php echo $user->id;?> <?php echo $user->title;?></option>
+                                    <option value="<?php echo $user->id;?>" <?php if(isset($edit_data->assigned_to) && $edit_data->assigned_to ==$user->id){ echo "selected";}?>  ><?php echo $user->title;?></option>
                                     <?php
                                        }
                                        }
