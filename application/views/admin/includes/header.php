@@ -52,7 +52,7 @@
                   <img src="<?php echo base_url(); ?>assets/admin/images/logo-light.png" alt="" height="40">
                   </span>
                   <span class="logo-lg">
-                  <img src="<?php echo base_url(); ?>assets/admin/images/logo-light.png" alt="" height="80">
+                  <img src="<?php echo base_url(); ?>assets/admin/images/logo-light.png" alt="" height="50">
                   </span>
                   </a>
                </div>
@@ -105,7 +105,6 @@
                   </button>
                   <div class="dropdown-menu dropdown-menu-end">
                      <!-- item-->
-                     <!-- <a class="dropdown-item" href="<?php echo base_url()?>admin/dashboard"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a> -->
                      <a class="dropdown-item" href="<?php echo base_url()?>admin/profile/edit"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Edit Profile</span></a>
                      <a class="dropdown-item d-block" href="<?php echo base_url()?>admin/profile/change_passowrd"><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Change Password</span></a>
                      <div class="dropdown-divider"></div>
@@ -158,10 +157,10 @@
                                                    ?>
 
                                                          <li>
-                                                             <a  href="<?php echo ($key2['menu_url'] !=="#") ? (base_url()."".$key2['menu_url']) : ('javascript: void(0);');?>"  key="t-products" <?php if(!empty($menu_data3)){ ?> class="has-arrow"  <?php } ?> >
-                                                               <?php echo (strlen($key2['icon_class']) >0) ? ('<i class="'.$key2['icon_class'].'"></i>') : ('');?>
-                                                                <?php echo $key2['menu_title']; ?> 
-                                                            </a>
+         <a href="<?php echo ($key2['menu_url'] !=="#") ? (base_url()."".$key2['menu_url']) : ('javascript: void(0);');?>"  key="t-products" <?php if(!empty($menu_data3)){ ?> class="has-arrow"  <?php } ?> >
+           <?php echo (strlen($key2['icon_class']) >0) ? ('<i class="'.$key2['icon_class'].'"></i>') : ('');?>
+            <?php echo $key2['menu_title']; ?> 
+        </a>
 
                                                             <?php
 
@@ -178,14 +177,14 @@
                                                                          
                                                                         ?>
 
-                                                                              <li>
-                                                                                  <a  href="<?php echo ($key3['menu_url'] !=="#") ? (base_url()."".$key3['menu_url']) : ('javascript: void(0);');?>"  key="t-products"  >
-                                                                                    <?php echo (strlen($key3['icon_class']) >0 ) ? ('<i class="'.$key3['icon_class'].'"></i>') : ('');?>
-                                                                                     <?php echo $key3['menu_title']; ?> 
-                                                                                 </a>
+                            <li>
+                                <a  href="<?php echo ($key3['menu_url'] !=="#") ? (base_url()."".$key3['menu_url']) : ('javascript: void(0);');?>"  key="t-products"  >
+                                  <?php echo (strlen($key3['icon_class']) >0 ) ? ('<i class="'.$key3['icon_class'].'"></i>') : ('');?>
+                                   <?php echo $key3['menu_title']; ?> 
+                               </a>
 
 
-                                                                              </li>
+                            </li>
                                                                               
                                                                            
                                                                         <?php
