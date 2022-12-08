@@ -1317,6 +1317,7 @@ body[data-layout=horizontal][data-layout-size=boxed] .container-fluid,body[data-
 
 .bg-success {
 	background-color: #48a51d !important;
+	color: #fff;
 }
 
 a.waves-effect.active {

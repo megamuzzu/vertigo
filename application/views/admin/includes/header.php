@@ -96,7 +96,7 @@
                <div class="dropdown d-inline-block">
                   <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                      data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/admin/images/users/avatar-1.jpg"
+                  <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/admin/images/users/user.png"
                      alt="Header Avatar">
                   <span class="d-none d-xl-inline-block ms-1" key="t-henry">
                   <?php echo @$this->session->userdata('name')?>
@@ -356,4 +356,3 @@
          </div>
       </div>
 
-      

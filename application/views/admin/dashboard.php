@@ -83,87 +83,78 @@
                 </div>
                 <!-- end page title -->
                 <div class="row">
-                    <div class="col-xl-8">
+                    <div class="col-xl-8 col-md-4 col-xs-12">
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <div class="card mini-stats-wid">
                                     <a href="javascript: void(0)" data-bs-toggle="modal" data-bs-target="#cssModal">
                                         <div class="my-card-body icon-box ">
                                             <div class="text-center">
-                                                <div class="mini-stat-icon  rounded-circle1 bg-primary mb-2"> <i class="bx bxs-tree text-white display-2"></i> </div>
+                                                <div class="mini-stat-icon  rounded-circle1 bg-primary mb-2"> <img src="<?php echo base_url(); ?>assets/images/icon/enquiry.svg" class="img-fluid"> </div>
                                                 <h6>INQUIRY</h6> </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <div class="card mini-stats-wid">
                                     <a href="javascript: void(0)" data-bs-toggle="modal" data-bs-target="#salesModal">
                                         <div class="my-card-body icon-box ">
                                             <div class="text-center">
-                                                <div class=" mini-stat-icon  rounded-circle2 bg-success mb-2"> <i class="bx bx-cart text-white display-2"></i> </div>
+                                                <div class="mini-stat-icon  rounded-circle1 bg-primary mb-2"> <img src="<?php echo base_url(); ?>assets/images/icon/sales.svg" class="img-fluid"> </div>
                                                 <h6>SALES</h6> </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <!-- <div class="col-md-2">
-                                <div class="card mini-stats-wid">
-                                    <div class="my-card-body icon-box ">
-                                        <div class="text-center">
-                                            <div class=" mini-stat-icon  rounded-circle3 bg-info mb-2"> <i class="bx bxs-shopping-bag text-white display-2"></i> </div>
-                                            <h6>PURCHASE</h6> </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <div class="card mini-stats-wid">
                                     <a href="javascript: void(0)" data-bs-toggle="modal" data-bs-target="#productModal">
                                         <div class="my-card-body icon-box ">
                                             <div class="text-center">
-                                                <div class=" mini-stat-icon  rounded-circle4 bg-success mb-2"> <i class="bx bxl-product-hunt text-white display-2"></i> </div>
+                                                <div class="mini-stat-icon  rounded-circle1 bg-primary mb-2"> <img src="<?php echo base_url(); ?>assets/images/icon/product.svg" class="img-fluid"> </div>
                                                 <h6>PRODUCT</h6> </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <!-- <div class="col-md-2">
-                                <div class="card mini-stats-wid">
-                                    <div class="my-card-body icon-box ">
-                                        <div class="text-center">
-                                            <div class=" mini-stat-icon  rounded-circle5 bg-warning mb-2"> <i class="bx bx-dock-top text-white display-2"></i> </div>
-                                            <h6>PO</h6> </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <div class="card mini-stats-wid">
                                     <a href="javascript: void(0)" data-bs-toggle="modal" data-bs-target="#settingModal">
                                         <div class="my-card-body icon-box ">
                                             <div class="text-center">
-                                                <div class="mini-stat-icon  rounded-circle6 bg-primary mb-2"> <i class="bx bx-cog text-white display-2"></i> </div>
+                                                <div class="mini-stat-icon  rounded-circle1 bg-primary mb-2"> <img src="<?php echo base_url(); ?>assets/images/icon/settings.svg" class="img-fluid"> </div>
                                                 <h6>SETTINGS</h6> </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <div class="card mini-stats-wid">
                                     <a href="javascript: void(0)" data-bs-toggle="modal" data-bs-target="#otherModal">
                                         <div class="my-card-body icon-box ">
                                             <div class="text-center">
-                                                <div class="mini-stat-icon  rounded-circle7 bg-primary mb-2"> <i class="bx bx-plus text-white display-2"></i> </div>
+                                                <div class="mini-stat-icon  rounded-circle1 bg-primary mb-2"> <img src="<?php echo base_url(); ?>assets/images/icon/management.svg" class="img-fluid"> </div>
                                                 <h6>MANAGEMENT</h6> </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="card mini-stats-wid">
+                                    <a href="javascript: void(0)" data-bs-toggle="modal" data-bs-target="#otherModal">
+                                        <div class="my-card-body icon-box ">
+                                            <div class="text-center">
+                                                <div class="mini-stat-icon  rounded-circle1 bg-primary mb-2"> <img src="<?php echo base_url(); ?>assets/images/icon/other.png" class="img-fluid"> </div>
+                                                <h6>OTHER</h6> </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4">
+                        <hr>                        
+                    </div>  
+                    <div class="col-xl-4 col-md-4 col-xs-12">
                         <div class="card">
                             <h4 class="card-header bg-success text-white border-bottom ">About Center</h4>
                             <div class="card-body">
@@ -210,10 +201,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
+                    </div>                  
                 </div>
-                <!-- end row -->
-                <!-- end row -->
             </div>
             <!-- container-fluid -->
     </div>
