@@ -61,11 +61,11 @@
                   </div>
                </form>
             </div>
-            <?php
-               /* print_r($edit_data);          
-               print_r($customer_call_dtl);  */  
+           <!--  <?php
+                 
+               print_r($_SESSION);    
                
-               ?>
+               ?> -->
             <div class="row">
                <div class="col-12">
                   <?php $this->load->helper('form'); ?>
@@ -368,7 +368,9 @@
                            </div>
                         </div>
                         <div class="col-sm-2">
+                           <?php if($this->session->userdata('userId') == 1){  ?>
                            <button type="button" class="btn btn-info btn-sm exportbtn"> <i class="fa fa-file-export"></i>Export</button>  
+                        <?php } ?>
                         </div>
                      </div>
                   </h5>
@@ -733,7 +735,12 @@
                </div>
                <div class="col-sm-6">
                <div class="float-end">
+               <?php if($this->session->userdata('userId') == 1){  ?>
+
                <a href="<?php echo base_url()?>admin/customer/export_stat?<?php echo $_SERVER['QUERY_STRING']?>" class="btn btn-info btn-sm">Export</a> 
+
+               <?php } ?>
+
                <a href="<?php echo base_url()?>admin/customer/addnew" class="btn btn-info btn-sm">Clear</a> 
                <button type="submit" class="btn btn-info btn-sm"> <i class="fa fa-search"></i> Submit Filter</button>
                <input name="form_type" type="hidden" value="inquiry">
