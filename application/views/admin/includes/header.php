@@ -56,9 +56,12 @@
                   </span>
                   </a>
                </div>
-               <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+               <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect"  id="vertical-menu-btn">
                <i class="fa fa-fw fa-bars"></i>
                </button>
+ 
+
+
                <div class="dropdown d-none d-lg-inline-block ms-1">
                             <button type="button" onclick="javascript:window.location.href='<?php echo base_url()?>admin/dashboard'" class="btn header-item "  >
                                 <div class="company-name">Vertigo Agriculture Private Limited</div>

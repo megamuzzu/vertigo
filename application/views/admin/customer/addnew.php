@@ -25,6 +25,7 @@
    <div class="container-fluid">
       <div class="row">
          <div class="col-xl-6">
+
             <div class="card">
                <form   method="GET"  >
                   <h5 class="card-header bg-success text-white border-bottom ">Search Customer</h5>
@@ -61,11 +62,7 @@
                   </div>
                </form>
             </div>
-           <!--  <?php
-                 
-               print_r($_SESSION);    
-               
-               ?> -->
+          
             <div class="row">
                <div class="col-12">
                   <?php $this->load->helper('form'); ?>
@@ -368,7 +365,10 @@
                            </div>
                         </div>
                         <div class="col-sm-2">
-                           <?php if($this->session->userdata('userId') == 1){  ?>
+
+
+
+                           <?php if($this->session->userdata('role') == 1){  ?>
                            <button type="button" class="btn btn-info btn-sm exportbtn"> <i class="fa fa-file-export"></i>Export</button>  
                         <?php } ?>
                         </div>
@@ -735,7 +735,7 @@
                </div>
                <div class="col-sm-6">
                <div class="float-end">
-               <?php if($this->session->userdata('userId') == 1){  ?>
+               <?php if($this->session->userdata('role') == 1){  ?>
 
                <a href="<?php echo base_url()?>admin/customer/export_stat?<?php echo $_SERVER['QUERY_STRING']?>" class="btn btn-info btn-sm">Export</a> 
 
