@@ -17,7 +17,7 @@ class Crop_model extends Base_model
     //set column field database for datatable searchable 
     var $column_search = array('name','status' ); 
 
-    var $order = array('id' => 'asc'); // default order
+    var $order = array('id' => 'desc'); // default order
 
 
 

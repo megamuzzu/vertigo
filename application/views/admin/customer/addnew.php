@@ -240,7 +240,7 @@
                                             if( $user->status !=='0')
                                             {
                                               ?>
-                                    <option value="<?php echo $user->id;?>" <?php if( $this->session->userdata('userId')==$user->id){echo "selected";}?> ><?php echo $user->id;?> <?php echo $user->title;?></option>
+                                    <option value="<?php echo $user->id;?>" <?php if( $this->session->userdata('userId')==$user->id){echo "selected";}?> ><?php echo $user->title;?></option>
                                     <?php
                                        }
                                           
@@ -348,7 +348,7 @@
                                     
                                           
                                                ?>
-                                 <option value="<?php echo $user->id;?>" <?php if( isset($userid) && $userid==$user->id){echo "selected";}?> ><?php echo $user->id;?> <?php echo $user->title;?></option>
+                                 <option value="<?php echo $user->id;?>" <?php if( isset($userid) && $userid==$user->id){echo "selected";}?> ><?php echo $user->title;?></option>
                                  <?php
                                     }
                                     }
