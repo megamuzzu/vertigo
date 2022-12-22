@@ -52,21 +52,15 @@ class Customer extends BaseController
 
         $this->global['module_id']      = get_module_byurl('admin/customer/addnew');
         $role_id                        = $this->session->userdata('role_id');
-        $action_requred                 = get_module_role($this->global['module_id']['id'],$role_id);
+        $userId                        = $this->session->userdata('userId');
+        $action_requred                 = get_module_role($this->global['module_id']['id'],$role_id,$userId);
         if(empty($action_requred))
         {
             $this->session->set_flashdata('error', 'Un-autherise Access');
             redirect(base_url());
         }
-
-
             
             $data = array();
-
-           
-            
-            
- 
 
             $data['edit_data'] = array();
             $data['section'] = $this->input->get('section');
@@ -106,8 +100,6 @@ class Customer extends BaseController
              
             $totalRec = $this->booking_model->getRows($conditions);
             
-
-
              $this->load->library('pagination'); 
 
                 $conditions = array(); 
@@ -116,7 +108,6 @@ class Customer extends BaseController
 
                 // Get record count 
                 
-
                 // Pagination configuration 
                 $config['base_url']    = base_url().'admin/customer/addnew/'; 
                 $config['uri_segment'] = $uriSegment; 
@@ -124,11 +115,7 @@ class Customer extends BaseController
                 $config['per_page']    = $this->perPage; 
                 $config['use_page_numbers'] = TRUE;
                 $config['reuse_query_string'] = TRUE;
-             
-
- 
-  
-
+    
 
             $config['full_tag_open'] = ' <ul class="pagination  justify-content-center mt-4" id="query-pagination">';
             $config['full_tag_close'] = '</ul> ';
@@ -182,10 +169,6 @@ class Customer extends BaseController
                 
                     
                 $data['bookings'] = $this->booking_model->getRows($conditions); 
-
- 
-                
-
 
                 $data['pagination_total_count'] =  $totalRec;
 
@@ -593,8 +576,8 @@ class Customer extends BaseController
             $this_month_booking  = $this->booking_model->findDynamic($where);; 
             $data['this_month_booking'] = count($this_month_booking);
 
- /*fetch data of previous months of booking*/
-             $where         = array();
+            /*fetch data of previous months of booking*/
+            $where         = array();
             $currentdate    = date("Y-m-d");
 
             $prevcurrentdate= date("Y-m", strtotime ( '-1 month' , strtotime ( $currentdate ) )) ;
@@ -630,6 +613,23 @@ class Customer extends BaseController
             $follow_up_due_today = count($result);
               $data['follow_up_due_today'] = $follow_up_due_today ; 
               $data['follow_up_due_today_sub'] = $this->customer_call_model->getCallsummary($data['calltypes'],$userid,'followup',$current_date,'today');
+
+            $data_param = array();
+            $data_param['userid']       =  $userid;
+            $data_param['current_date']    = $current_date;
+            $data_param['stat_type']    = 'followup';
+            $data_param['followup_type']= 'alltime'; 
+            $result =   $this->customer_call_model->callSummary($data_param);
+            $follow_up_all_time = count($result);
+            $data['follow_up_all_time'] = $follow_up_all_time ; 
+            $data['follow_up_all_time_sub'] = $this->customer_call_model->getCallsummary($data['calltypes'],$userid,'followup',$current_date,'alltime');
+
+
+            $follow_up_due_all_time = count($result);
+            $data['follow_up_due_all_time'] = $follow_up_due_all_time ;
+            $data['follow_up_due_all_time_sub'] = $this->customer_call_model->getCallsummary($data['calltypes'],$userid,'followup',$current_date,'alltime');
+
+
              
             $data_param = array();
             $data_param['userid']       =  $userid;

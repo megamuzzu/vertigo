@@ -327,7 +327,7 @@
                   <h5 class="card-header bg-success text-white border-bottom ">
                      <div class="row ">
                         <div class="col-sm-4">
-                           Inquiry Stat
+                           Inquiry Stats
                         </div>
                         <div class="col-sm-6">
                            <div class="input-group input-group-sm">
@@ -375,6 +375,9 @@
                      </div>
                   </h5>
                </form>
+              <!--  <pre>
+                  <?php  print_r($_SESSION);?>
+               </pre> -->
                <div class="card-body">
                   <div class="row">
                      <div class="col-sm-4">
@@ -516,6 +519,42 @@
                                          ?>
                                  <li>
                                     <a style="font-size: 10px;" href="<?php echo base_url()?>admin/customer/addnew?section=statsdata&form_type=inquiry&stat_type=followup&followup_type=tomorrow&call_type2=<?php echo $value['id'];?><?php echo $uuid?>">
+                                       <div class="float-end">
+                                          <p class="text-primary mb-0"><?php echo $value['total_count_call'];?></p>
+                                       </div>
+                                       <p class="text-primary mb-0"><?php echo $value['title'];?></p>
+                                    </a>
+                                 </li>
+                                 <?php
+                                    }
+                                       
+                                    }
+                                    ?>
+                              </ul>
+                              <?php
+                                 }
+                                 ?>
+                           </div>
+                           <div class="flex-grow-1">
+                              <a style="font-weight: 600;" href="<?php echo base_url()?>admin/customer/addnew?section=statsdata&form_type=inquiry&stat_type=followup&followup_type=alltime<?php echo $uuid?>">
+                                 <div class="float-end">
+                                    <p class="text-primary mb-0"><?php echo $follow_up_all_time;?></p>
+                                 </div>
+                                 <p class="text-primary mb-0">All Time</p>
+                              </a>
+                              <?php 
+                                 if(!empty($follow_up_all_time_sub))
+                                 {
+                                   ?>
+                              <ul class="mb-0">
+                                 <?php
+                                    foreach ($follow_up_all_time_sub as $key => $value)
+                                    {
+                                     if($value['total_count_call'] >0)
+                                     {
+                                         ?>
+                                 <li>
+                                    <a style="font-size: 10px;" href="<?php echo base_url()?>admin/customer/addnew?section=statsdata&form_type=inquiry&stat_type=followup&followup_type=alltime&call_type2=<?php echo $value['id'];?><?php echo $uuid?>">
                                        <div class="float-end">
                                           <p class="text-primary mb-0"><?php echo $value['total_count_call'];?></p>
                                        </div>
@@ -854,11 +893,11 @@
                <th class="align-middle bg-success text-white" >Last Follower</th>
                <th class="align-middle bg-success text-white" >Last Call Type</th>
                </tr>
-               </thead>
+               </thead>           
                <tbody>
                <?php
-                  if(!empty($customers)){ foreach($customers as $customer){ 
-                    ?>
+                  if(!empty($customers)){
+                   foreach($customers as $customer){ ?>
                <tr>
                <td>
                <div class="btn-group">
@@ -924,6 +963,7 @@
                </tr>
                <?php } ?>
                </tbody>
+                
                </table>
                </div>
                <div class="row">

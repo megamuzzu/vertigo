@@ -210,7 +210,7 @@ class Customer_model extends Base_model
                 $this->db->join('z_admin as admin3', 'admin3.id = c.last_follower', 'left');
                 $this->db->join('z_call_type as last_ctype', 'last_ctype.id = c.last_follow_call_type', 'left');
 
-                $where  = '';
+                    $where  = '';
                  
                     $role = $this->session->userdata('role');
                     $company_id = $this->session->userdata('company_id');
@@ -222,17 +222,6 @@ class Customer_model extends Base_model
                     {
                         $where.= "( c.status = 1 AND c.company_id=".$company_id."  AND c.farmer_id !='')";  
                     }
-                    
-                    
-                   
-
-
- 
-        
-                
-                     
-
-               
                     
 
             if(array_key_exists("where", $params)){
@@ -417,8 +406,6 @@ class Customer_model extends Base_model
              
              return $result; 
     } 
-
-
 
 }
 

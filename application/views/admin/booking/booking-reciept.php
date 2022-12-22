@@ -1,4 +1,3 @@
-
 <style type="text/css">
 
     .invoice
@@ -8,13 +7,8 @@
             position: relative;
     }
 
-     
-
     @media print {
- 
-    
-
-      body * {
+       body * {
         visibility: hidden;
     }
 
@@ -388,10 +382,21 @@
                                     <div class="col-4">
                                         <div class="seal-section" style="margin-top: 20px;">
                                             <div class="text-center float-right" style="width: 224px;">
-                                                <div>For <?php echo strtoupper(@$company_details['title']);?></div>
-                                                <div style="min-height: 130px">
-                                                    <img class="seal-img d-print-block d-block" style="max-width: 206px;" src="<?php echo base_url()?>assets/admin/images/<?php echo @$company_details['seal_logo'];?>" alt="seal-logo">
+                                                <div>FOR <?php echo strtoupper(@$company_details['title']);?></div>
+                                                <div style="margin: 20px;">
+                                                    <!-- <img class="seal-img d-print-block d-block" style="max-width: 206px;" src="<?php echo base_url()?>assets/admin/images/<?php echo @$company_details['seal_logo'];?>" alt="seal-logo"> -->
+
+                                                    <img class="seal-img d-print-block d-block" style="max-width: 170px;" src="<?php echo base_url()?>assets/admin/images/naveen-sign.png" alt="seal-logo">
+
                                                 </div>
+
+                                                <div style="margin: 20px;">
+                                                    <!-- <img class="seal-img d-print-block d-block" style="max-width: 170px;" src="<?php echo base_url()?>assets/admin/images/<?php echo @$company_details['seal_logo'];?>" alt="seal-logo"> -->
+
+                                                    <img class="seal-img d-print-block d-block" style="max-width: 170px;" src="<?php echo base_url()?>assets/admin/images/navs-sign.png" alt="seal-logo">
+
+                                                </div>
+
                                                 <p style="margin-top: 20px;">Authorised Signatory</p>
                                             </div>
                                         </div>
