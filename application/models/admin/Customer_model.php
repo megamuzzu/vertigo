@@ -96,6 +96,26 @@ class Customer_model extends Base_model
 
         }
 
+
+
+       /*  function get_datatables()
+        {
+
+            $this->_get_datatables_query();
+
+            if(isset($_POST['length']) && $_POST['length'] != -1)
+
+            $this->db->limit($_POST['length'], $_POST['start']);
+
+            $query = $this->db->get();
+
+            return $query->result();
+
+        }*/
+
+
+
+
         // Get Database 
 
          public function _get_datatables_query()
@@ -214,13 +234,18 @@ class Customer_model extends Base_model
                  
                     $role = $this->session->userdata('role');
                     $company_id = $this->session->userdata('company_id');
+                    /*$agent_id = $this->session->userdata('userid');*/
                     $current_date = date("Y-m-d");
-                    if($role ==1)
+                    if(isset($_SESSION['role']) && $_SESSION['role'] =='1')
                     {
                         $where.= "( c.status = 1 AND c.farmer_id !='')";
                     }else
-                    {
-                        $where.= "( c.status = 1 AND c.company_id=".$company_id."  AND c.farmer_id !='')";  
+                    {   
+                        $agentId = $_SESSION['userId'];
+                        /*$where.= " and c.assigned_to='".$agentId."'";*/
+                        /*$where.= "( c.status = 1 AND c.company_id=".$company_id."  AND c.farmer_id !='')";*/
+                        $where.= "(c.assigned_to = '".$agentId."')";
+
                     }
                     
 
@@ -247,7 +272,6 @@ class Customer_model extends Base_model
 
                 }
                 
-
                     if(isset($params['where']['current_date']))
                     {
 

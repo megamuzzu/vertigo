@@ -288,10 +288,6 @@ class Customer_call_model extends Base_model
             foreach ($alltype as $key => $value) 
             {
                   
-                  
-               
-
-
                 $data_param                 = array();
                 $data_param['userid']       =  $userid;
                 $data_param['stat_type']    = $stat_type;
@@ -304,7 +300,6 @@ class Customer_call_model extends Base_model
                 $sec_arr['title']   = $value->title; 
                 $sec_arr['total_count_call'] = count($result);
                 $array[] = $sec_arr;
-
  
             }
              return $array;

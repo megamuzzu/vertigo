@@ -32,12 +32,7 @@ class Customer extends BaseController
     
     public function index()
     {
-        /*$this->isLoggedIn();
-
-        $data = array();
-        $this->global['pageTitle'] = 'Customer ';
-        $this->loadViews("admin/customer/list", $this->global, $data , NULL);*/
-
+       
         $this->addnew();
         
     }
@@ -47,7 +42,7 @@ class Customer extends BaseController
     public function addnew()
     {
     
-            $this->isLoggedIn();
+        $this->isLoggedIn();
 
 
         $this->global['module_id']      = get_module_byurl('admin/customer/addnew');
@@ -320,10 +315,6 @@ class Customer extends BaseController
                 $config['reuse_query_string'] = TRUE;
              
 
- 
-  
-
-
             $config['full_tag_open'] = ' <ul class="pagination  justify-content-center mt-4" id="query-pagination">';
             $config['full_tag_close'] = '</ul> ';
              
@@ -440,17 +431,8 @@ class Customer extends BaseController
                         //$data['customer_call_dtl'] =$this->customer_call_detail($data['edit_data']->id);
                        // $data['customer_call_dtl'] = $this->customer_call_model->findDynamic($where);
                     }
-                    
-
-
-                     
-                }
-
-
-
-                
-                 
-                 
+                                         
+                }  
                 
             }
 
@@ -642,9 +624,7 @@ class Customer extends BaseController
             $follow_up_due_tomorrow = count($result);
             $data['follow_up_due_tomorrow'] = $follow_up_due_tomorrow ;
             $data['follow_up_due_tomorrow_sub'] = $this->customer_call_model->getCallsummary($data['calltypes'],$userid,'followup',$current_date,'tomorrow'); 
-            
-            
-          
+        
             
         $this->global['pageTitle'] = 'Add New customer';
         $this->loadViews("admin/customer/addnew", $this->global, $data , NULL);
@@ -972,11 +952,6 @@ class Customer extends BaseController
                         </div>
                         </div>';
 
-                                            /*<a  class="btn btn-primary btn-sm btn-rounded waves-effect waves-light"  href="'.base_url().'admin/customer/edit/'.$currentObj->id.'" >
-                                                                View Details
-                                                            </a><a  class="btn btn-primary btn-sm btn-rounded waves-effect waves-light deletebtn  href="#" data-userid="'.$currentObj->id.'" >
-                                                                Delete
-                                                            </a>*/
             $row[] = $dateAt;
             
             $row[] = $currentObj->sku_id;

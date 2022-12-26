@@ -375,9 +375,9 @@
                      </div>
                   </h5>
                </form>
-              <!--  <pre>
-                  <?php  print_r($_SESSION);?>
-               </pre> -->
+                <pre>
+                <!-- <?php  print_r($calltypes);?> -->
+               </pre> 
                <div class="card-body">
                   <div class="row">
                      <div class="col-sm-4">
@@ -893,7 +893,20 @@
                <th class="align-middle bg-success text-white" >Last Follower</th>
                <th class="align-middle bg-success text-white" >Last Call Type</th>
                </tr>
-               </thead>           
+               </thead>
+
+               <!-- <pre>
+                  <?php
+                     print_r($_SESSION);
+                  ?>
+               </pre>
+
+               <pre>
+                  <?php
+                     print_r($customers);
+                  ?>
+               </pre> -->
+
                <tbody>
                <?php
                   if(!empty($customers)){
